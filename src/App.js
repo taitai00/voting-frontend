@@ -8,6 +8,8 @@ import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import WorkoutForm from "./components/WorkoutForm";
 
+export const API_URL = process.env.REACT_APP_API_URL;
+
 function App() {
   const { user } = useAuthContext();
 

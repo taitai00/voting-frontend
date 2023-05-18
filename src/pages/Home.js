@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { API_URL } from "../App";
 
 // components
 import WorkoutDetails from "../components/WorkoutDetails";
@@ -12,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch("/api/workouts", {
+      const response = await fetch(`${API_URL}/api/workouts`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       const json = await response.json();
