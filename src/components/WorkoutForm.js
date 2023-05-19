@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../App";
 
 const WorkoutForm = () => {
   const { dispatch } = useWorkoutsContext();
@@ -24,7 +25,7 @@ const WorkoutForm = () => {
 
     const workout = { title, load, reps };
 
-    const response = await fetch("/api/workouts", {
+    const response = await fetch(`${API_URL}/api/workouts`, {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {

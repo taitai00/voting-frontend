@@ -5,6 +5,7 @@ import Iframe from "react-iframe";
 
 // date fns
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { API_URL } from "../App";
 
 const WorkoutDetails = ({ workout }) => {
   const { dispatch } = useWorkoutsContext();
@@ -16,7 +17,7 @@ const WorkoutDetails = ({ workout }) => {
       return;
     }
 
-    const response = await fetch("/api/workouts/" + workout._id, {
+    const response = await fetch(`${API_URL}/api/workouts/` + workout._id, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,
